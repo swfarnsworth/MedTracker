@@ -1,0 +1,6 @@
+./venv
+./vagrant
+
+ubuntu-bionic-18.04-cloudimg-console.log
+
+db.sqlite
