@@ -144,9 +144,2120 @@
                         "I didn't actually take {Med}",
                         "I didn't take {Med}"
                     ]
+                },
+                {
+                    "name": "SetTimezoneIntent",
+                    "slots": [
+                        {
+                            "name": "Timezone",
+                            "type": "timezones"
+                        }
+                    ],
+                    "samples": [
+                        "change my timezone to {Timezone}",
+                        "I live in {Timezone}",
+                        "my timezone is {Timezone}",
+                        "set my timezone to {Timezone}"
+                    ]
                 }
             ],
-            "types": []
+            "types": [
+                {
+                    "name": "timezones",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Abidjan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Accra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Addis Ababa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Algiers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Asmara"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bamako"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bangui"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Banjul"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bissau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Blantyre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Brazzaville"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bujumbura"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cairo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Casablanca"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ceuta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Conakry"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dakar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dar es Salaam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Djibouti"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Douala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "El_Aaiun"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Freetown"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gaborone"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Harare"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Johannesburg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Juba"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kampala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Khartoum"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kigali"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kinshasa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lagos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Libreville"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lome"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Luanda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lubumbashi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lusaka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Malabo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maputo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maseru"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mbabane"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mogadishu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Monrovia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nairobi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ndjamena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Niamey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nouakchott"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ouagadougou"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sao_Tome"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tripoli"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tunis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Windhoek"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Adak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Anchorage"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Anguilla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Antigua"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Araguaina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Argentina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aruba"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Asuncion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Atikokan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bahia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bahia Banderas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Barbados"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Belem"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Belize"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Boa_Vista"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bogota"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Boise"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cambridge_Bay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Campo Grande"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cancun"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Caracas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cayenne"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cayman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chicago"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chihuahua"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Costa_Rica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Creston"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cuiaba"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Curacao"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Danmarkshavn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dawson"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dawson Creek"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Denver"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Detroit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dominica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Edmonton"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Eirunepe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "El Salvador"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fort Nelson"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fortaleza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Glace_Bay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Godthab"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Goose Bay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Grand Turk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Grenada"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guadeloupe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guatemala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guayaquil"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guyana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Halifax"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Havana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hermosillo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Indiana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Inuvik"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Iqaluit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jamaica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Juneau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kentucky"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kentucky"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kralendijk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "La Paz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lima"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Los Angeles"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lower Princes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maceio"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Managua"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Manaus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Marigot"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Martinique"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Matamoros"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mazatlan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Menominee"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Merida"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Metlakatla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mexico City"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Miquelon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Moncton"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Monterrey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Montevideo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Montserrat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nassau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "New York"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nipigon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nome"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Noronha"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "North Dakota"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ojinaga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Panama"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pangnirtung"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paramaribo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Phoenix"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Port au Prince"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Port of Spain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Porto Velho"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Puerto Rico"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Punta Arenas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rainy River"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rankin Inlet"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Recife"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Regina"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Resolute"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rio Branco"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Santarem"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Santiago"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Santo Domingo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sao Paulo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Scoresbysund"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sitka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Barthelemy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Johns"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Kitts"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Lucia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Thomas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Vincent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Swift Current"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tegucigalpa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Thule"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Thunder Bay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tijuana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Toronto"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tortola"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vancouver"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Whitehorse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Winnipeg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yakutat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yellowknife"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Casey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Davis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "DumontDUrville"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Macquarie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mawson"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "McMurdo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Palmer"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rothera"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Syowa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Troll"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vostok"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Longyearbyen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aden"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Almaty"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Amman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Anadyr"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aqtau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aqtobe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ashgabat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Atyrau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Baghdad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bahrain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Baku"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bangkok"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Barnaul"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Beirut"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bishkek"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Brunei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chita"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Choibalsan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Colombo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Damascus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dhaka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dili"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dubai"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dushanbe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Famagusta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gaza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hebron"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ho Chi Minh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hong Kong"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hovd"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Irkutsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jakarta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jayapura"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jerusalem"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kabul"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kamchatka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Karachi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kathmandu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Khandyga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kolkata"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Krasnoyarsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kuala Lumpur"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kuching"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kuwait"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Macau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Magadan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Makassar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Manila"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Muscat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nicosia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Novokuznetsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Novosibirsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Omsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Oral"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Phnom Penh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pontianak"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pyongyang"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Qatar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Qostanay"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Qyzylorda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Riyadh"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sakhalin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Samarkand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Seoul"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Shanghai"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Singapore"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Srednekolymsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Taipei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tashkent"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tbilisi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tehran"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Thimphu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tokyo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tomsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ulaanbaatar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Urumqi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ust-Nera"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vientiane"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vladivostok"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yakutsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yangon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yekaterinburg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yerevan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Azores"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bermuda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Canary"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cape Verde"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Faroe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Madeira"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Reykjavik"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "South Georgia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "St Helena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Stanley"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Adelaide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Brisbane"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Broken Hill"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Currie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Darwin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Eucla"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hobart"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lindeman"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lord Howe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Melbourne"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Perth"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sydney"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Atlantic"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Central"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Eastern"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mountain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Newfoundland"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pacific"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Amsterdam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Andorra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Astrakhan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Athens"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Belgrade"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Berlin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bratislava"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Brussels"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bucharest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Budapest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Busingen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chisinau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Copenhagen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dublin"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gibraltar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guernsey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Helsinki"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Isle of Man"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Istanbul"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jersey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kaliningrad"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kiev"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kirov"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Lisbon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ljubljana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "London"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Luxembourg"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Madrid"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Malta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mariehamn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Minsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Monaco"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Moscow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Oslo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Paris"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Podgorica"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Prague"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Riga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rome"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Samara"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "San Marino"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sarajevo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Saratov"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Simferopol"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Skopje"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sofia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Stockholm"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tallinn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tirane"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Ulyanovsk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Uzhgorod"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vaduz"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vatican"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vienna"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Vilnius"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Volgograd"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Warsaw"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zagreb"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zaporozhye"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Zurich"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "GMT"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Antananarivo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chagos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Christmas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cocos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Comoro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kerguelen"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mahe"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maldives"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mauritius"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mayotte"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Reunion"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Apia"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Auckland"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bougainville"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chatham"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chuuk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Easter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Efate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Enderbury"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fakaofo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fiji"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Funafuti"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Galapagos"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gambier"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guadalcanal"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Guam"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Honolulu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kiritimati"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kosrae"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kwajalein"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Majuro"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Marquesas"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Midway"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nauru"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Niue"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Norfolk"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Noumea"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pago Pago"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Palau"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pitcairn"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pohnpei"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Port Moresby"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Rarotonga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Saipan"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tahiti"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tarawa"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tongatapu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Wake"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Wallis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Alaska"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Arizona"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Central"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Eastern"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hawaii"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mountain"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pacific"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "UTC"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     }
 }
