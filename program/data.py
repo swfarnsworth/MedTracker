@@ -35,10 +35,9 @@ Med.__table__.create(bind=engine)
 def has_account(user_name):
     """Returns True if the user has at least one medication"""
     session = Session()
-    account_items = session.query(Med).filter_by(account_id=user_name)
-    does_have = bool(account_items)
+    num_meds = session.query(Med).filter_by(account_id=user_name).count()
     session.close()
-    return does_have
+    return num_meds > 0
 
 
 def get_med(session, user_name, med_name):
