@@ -29,24 +29,23 @@ class Med(Base):
 
     def take(self):
         """Sets self.when_taken to the Unix timestamp of the present time."""
-        session = Session()
-        # Get the user's timezone from the table of timezones; if it's there, get the name of it or set it to UTC
-        user_timezone_entry = session.query(Timezone).filter_by(account_id=self.account_id).first()  # table entry
-        user_timezone_name = user_timezone_entry.timezone if user_timezone_entry is not None else 'UTC'  # timezone str
-        session.close()
-        user_timezone = pytz.timezone(user_timezone_name)  # timezone object
-        self.when_taken = datetime.datetime.now().astimezone(user_timezone).timestamp()
+        timezone = self._get_timezone()
+        self.when_taken = datetime.datetime.now().astimezone(timezone).timestamp()
 
     def is_taken_today(self):
         """Returns True if this med was taken today"""
+        timezone = self._get_timezone()
+        when_taken = datetime.datetime.fromtimestamp(self.when_taken)
+        return when_taken.astimezone(timezone).date() == datetime.datetime.today().astimezone(timezone).date()
+
+    def _get_timezone(self):
+        """Returns a pytz.timezone object for the user's timezone"""
         session = Session()
         # Get the user's timezone from the table of timezones; if it's there, get the name of it or set it to UTC
         user_timezone_entry = session.query(Timezone).filter_by(account_id=self.account_id).first()  # table entry
         user_timezone_name = user_timezone_entry.timezone if user_timezone_entry is not None else 'UTC'  # timezone str
         session.close()
-        user_timezone = pytz.timezone(user_timezone_name)  # timezone object
-        when_taken = datetime.datetime.fromtimestamp(self.when_taken)
-        return when_taken.astimezone(user_timezone).date() == datetime.datetime.today().astimezone(user_timezone).date()
+        return pytz.timezone(user_timezone_name)
 
     def __repr__(self):
         return f"Med({self.account_id}, {self.name}, {self.when_taken})"
