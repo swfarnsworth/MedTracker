@@ -204,5 +204,15 @@ def what_meds_taken_intent():
         return statement(return_statement)
 
 
+@ask.intent("SetTimezoneIntent", mapping={"timezone_name": "Timezone"})
+def set_timezone_intent(timezone_name):
+    """Set the user's timezone"""
+    user_id = get_id(request)
+    if db.set_timezone(user_id, timezone_name):
+        return statement(f"Your timezone has been set to {timezone_name}")
+    else:
+        return statement(f"{timezone_name} is not a valid timezone name")
+
+
 if __name__ == "__main__":
     app.run()
