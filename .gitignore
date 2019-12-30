@@ -4,6 +4,7 @@
 .idea/
 .vagrant/
 
-ubuntu-bionic-18.04-cloudimg-console.log
+# Ignore databases
+*.db
 
-db.sqlite
+ubuntu-bionic-18.04-cloudimg-console.log
