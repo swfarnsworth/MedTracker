@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_ask import Ask, statement, question
 
-from program import data as db
+import data as db
 
 
 app = Flask(__name__)
@@ -32,6 +32,11 @@ def before_starting():
                         "for you. Please repeat your request and we will get started.")
 
 
+@ask.intent("AMAZON.FallbackIntent")
+def fallback_intent():
+    return statement("Sorry, med tracker didn't understand that.")
+
+
 @ask.intent("TakeMedIntent", mapping={"med_name": "Med"})
 def take_med_intent(med_name):
     session = db.Session()
@@ -44,13 +49,13 @@ def take_med_intent(med_name):
         return statement(f"I'm not tracking {med_name}. Let me know if you want to start tracking it.")
 
     med.take()
-    session.close()
+    session.commit()
     return statement(f"Okay, you've taken {med_name}.")
 
 
 
 @ask.intent("TakeTwoMedIntent", mapping={"med_name": "Med",
-                                         "med_name_2": "Med2"})
+                                         "med_name_2": "MedTwo"})
 def take_two_med_intent(med_name, med_name_2):
     """Tell the skill you want to take a med"""
     session = db.Session()
@@ -71,8 +76,8 @@ def take_two_med_intent(med_name, med_name_2):
 
 
 @ask.intent("TakeThreeMedIntent", mapping={"med_name": "Med",
-                                           "med_name_2": "Med2",
-                                           "med_name_3": "Med3"})
+                                           "med_name_2": "MedTwo",
+                                           "med_name_3": "MedThree"})
 def take_three_med_intent(med_name, med_name_2, med_name_3):
     """Tell the skill you want to take three meds"""
     session = db.Session()
@@ -117,10 +122,12 @@ def remove_med_intent(med_name):
     session = db.Session()
     user_id = get_id(request)
 
-    if not db.validate_has_meds(session, user_id, [med_name]):
+    med = db.get_med(session, user_id, med_name)
+
+    if not med:
+        session.close()
         return statement(f"I wasn't tracking {med_name}.")
 
-    med = db.get_med(session, user_id, med_name)
     session.delete(med)
     session.commit()
 
@@ -136,11 +143,12 @@ def ask_med_intent(med_name):
     med = db.get_med(session, user_id, med_name)
 
     if not med:
+        session.close()
         return statement(f"I'm not tracking {med_name}.")
 
 
     is_taken = med.is_taken_today()
-    session.commit()
+    session.close()
 
     if is_taken:
         return statement(f"You did take {med_name}")
