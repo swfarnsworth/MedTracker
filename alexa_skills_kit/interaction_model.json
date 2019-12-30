@@ -1,0 +1,152 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "med tracker",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "TakeMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "I took {Med}",
+                        "I just took {Med}",
+                        "I want to take {Med}",
+                        "I am taking {Med}"
+                    ]
+                },
+                {
+                    "name": "AddMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "add {Med}",
+                        "track {Med}",
+                        "I want to start tracking {Med}",
+                        "I want to track {Med}"
+                    ]
+                },
+                {
+                    "name": "RemoveMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "delete {Med}",
+                        "stop tracking {Med}",
+                        "remove {Med}",
+                        "do not track {Med}"
+                    ]
+                },
+                {
+                    "name": "AskMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "did I take {Med}",
+                        "if I have taken {Med}",
+                        "have I taken {Med}"
+                    ]
+                },
+                {
+                    "name": "TakeTwoMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        },
+                        {
+                            "name": "MedTwo",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "I am taking {Med} and {MedTwo}"
+                    ]
+                },
+                {
+                    "name": "TakeThreeMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        },
+                        {
+                            "name": "MedTwo",
+                            "type": "AMAZON.Animal"
+                        },
+                        {
+                            "name": "MedThree",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "I am taking {Med}  {MedTwo}  and {MedThree}"
+                    ]
+                },
+                {
+                    "name": "WhatMedsTakenIntent",
+                    "slots": [],
+                    "samples": [
+                        "what did I take",
+                        "what have I taken",
+                        "what meds did I take",
+                        "what meds have I taken"
+                    ]
+                },
+                {
+                    "name": "CancelMedIntent",
+                    "slots": [
+                        {
+                            "name": "Med",
+                            "type": "AMAZON.Animal"
+                        }
+                    ],
+                    "samples": [
+                        "forget that I took {Med}",
+                        "I haven't actually taken {Med}",
+                        "I have not taken {Med}",
+                        "I haven't taken {Med}",
+                        "I didn't actually take {Med}",
+                        "I didn't take {Med}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
