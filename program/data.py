@@ -66,14 +66,25 @@ Med.__table__.create(bind=engine)
 User.__table__.create(bind=engine)
 
 
+def create_account(user_name):
+    """
+    Creates objects for a new account with built-in morning, afternoon, and evening Meds
+    :return: list of new objects
+    """
+    new_account = User(account_id=user_name, last_used=0.0)
+    morning_meds = Med(account_id=user_name, name='MORNING', when_taken=0.0)
+    afternoon_meds = Med(account_id=user_name, name='AFTERNOON', when_taken=0.0)
+    evening_meds = Med(account_id=user_name, name='EVENING', when_taken=0.0)
+    return [new_account, morning_meds, afternoon_meds, evening_meds]
+
+
 def has_account(user_name, session=None):
     """Returns True if the user has at least one medication"""
     session = session or Session()
     account = session.query(User).filter_by(account_id=user_name).first()
 
     if account is None:
-        new_account = User(last_used=0.0)
-        session.add(new_account)
+        session.add_all(create_account(user_name))
         session.commit()
         return False
 
@@ -83,6 +94,21 @@ def has_account(user_name, session=None):
 
 def get_med(session, user_name, med_name):
     """Returns the first med with a matching user name and med name (there should only be one anyway)"""
+
+    daypart_meds = {
+        'my morning pills': 'MORNING',
+        'my morning meds': 'MORNING',
+        'my morning medications': 'MORNING',
+        'my afternoon pills': 'AFTERNOON',
+        'my afternoon meds': 'AFTERNOON',
+        'my afternoon medications': 'AFTERNOON',
+        'my evening pills': 'EVENING',
+        'my evening meds': 'EVENING',
+        'my evening medications': 'EVENING'
+    }
+    if med_name in daypart_meds:
+        med_name = daypart_meds[med_name]
+
     return session.query(Med).filter_by(account_id=user_name, name=med_name).first()
 
 
