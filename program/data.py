@@ -11,14 +11,24 @@ Base = declarative_base()
 Session = sessionmaker(bind=engine)
 
 
-class Timezone(Base):
+class User(Base):
     """Stores the user's timezone"""
     __tablename__ = 'timezones'
     account_id = sql.Column(sql.String, primary_key=True)
     timezone = sql.Column(sql.String)
+    last_used = sql.Column(sql.Float)
 
     def __repr__(self):
-        return f"Timezome({self.account_id}, {self.timezone})"
+        return f"User({self.account_id}, {self.timezone}, {self.last_used})"
+
+    def set_last_use(self):
+        """Sets self.last_used to the current UTC time"""
+        self.last_used = datetime.datetime.now().timestamp()
+
+    def get_time_since_last_use(self):
+        """Returns how many seconds since the user last used the program"""
+        now = datetime.datetime.now().timestamp()
+        return now - self.last_used
 
 
 class Med(Base):
@@ -43,7 +53,7 @@ class Med(Base):
         """Returns a pytz.timezone object for the user's timezone"""
         session = Session()
         # Get the user's timezone from the table of timezones; if it's there, get the name of it or set it to UTC
-        user_timezone_entry = session.query(Timezone).filter_by(account_id=self.account_id).first()  # table entry
+        user_timezone_entry = session.query(User).filter_by(account_id=self.account_id).first()  # table entry
         user_timezone_name = user_timezone_entry.timezone if user_timezone_entry is not None else 'UTC'  # timezone str
         session.close()
         return pytz.timezone(user_timezone_name)
@@ -53,15 +63,22 @@ class Med(Base):
 
 
 Med.__table__.create(bind=engine)
-Timezone.__table__.create(bind=engine)
+User.__table__.create(bind=engine)
 
 
-def has_account(user_name):
+def has_account(user_name, session=None):
     """Returns True if the user has at least one medication"""
-    session = Session()
-    num_meds = session.query(Med).filter_by(account_id=user_name).count()
-    session.close()
-    return num_meds > 0
+    session = session or Session()
+    account = session.query(User).filter_by(account_id=user_name).first()
+
+    if account is None:
+        new_account = User(last_used=0.0)
+        session.add(new_account)
+        session.commit()
+        return False
+
+    account.set_last_use()
+    return True
 
 
 def get_med(session, user_name, med_name):
@@ -84,10 +101,10 @@ def set_timezone(user_name, user_tz_name):
     if timezone_name not in pytz.common_timezones:
         return False
 
-    user_timezone = session.query(Timezone).filter_by(account_id=user_name).first()
+    user_timezone = session.query(User).filter_by(account_id=user_name).first()
     if not user_timezone:
         # User timezone has never been set
-        timezone_column = Timezone(account_id=user_name, timezone=timezone_name)
+        timezone_column = User(account_id=user_name, timezone=timezone_name)
         session.add(timezone_column)
     else:
         # Change user timezone
