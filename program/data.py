@@ -72,9 +72,9 @@ def create_account(user_name):
     :return: list of new objects
     """
     new_account = User(account_id=user_name, last_used=0.0)
-    morning_meds = Med(account_id=user_name, name='MORNING', when_taken=0.0)
-    afternoon_meds = Med(account_id=user_name, name='AFTERNOON', when_taken=0.0)
-    evening_meds = Med(account_id=user_name, name='EVENING', when_taken=0.0)
+    morning_meds = Med(account_id=user_name, name='your morning meds', when_taken=0.0)
+    afternoon_meds = Med(account_id=user_name, name='your afternoon meds', when_taken=0.0)
+    evening_meds = Med(account_id=user_name, name='your evening meds', when_taken=0.0)
     return [new_account, morning_meds, afternoon_meds, evening_meds]
 
 
@@ -96,15 +96,15 @@ def get_med(session, user_name, med_name):
     """Returns the first med with a matching user name and med name (there should only be one anyway)"""
 
     daypart_meds = {
-        'my morning pills': 'MORNING',
-        'my morning meds': 'MORNING',
-        'my morning medications': 'MORNING',
-        'my afternoon pills': 'AFTERNOON',
-        'my afternoon meds': 'AFTERNOON',
-        'my afternoon medications': 'AFTERNOON',
-        'my evening pills': 'EVENING',
-        'my evening meds': 'EVENING',
-        'my evening medications': 'EVENING'
+        'my morning pills': 'your morning meds',
+        'my morning meds': 'your morning meds',
+        'my morning medications': 'your morning meds',
+        'my afternoon pills': 'your afternoon meds',
+        'my afternoon meds': 'your afternoon meds',
+        'my afternoon medications': 'your afternoon meds',
+        'my evening pills': 'your evening meds',
+        'my evening meds': 'your evening meds',
+        'my evening medications': 'your evening meds'
     }
     if med_name in daypart_meds:
         med_name = daypart_meds[med_name]
