@@ -1,11 +1,16 @@
-from flask import Flask, request
-from flask_ask import Ask, statement, question
+import logging
 
-import data as db
+from flask import Flask, request
+from flask_ask import Ask, statement
+
+import program.data as db
 
 
 app = Flask(__name__)
 ask = Ask(app, '/')
+
+_no_account_response = statement("This appears to be your first time using med tracker. I have created your account. "
+                                 "Please read the terms of service and repeat your request to get started.")
 
 
 def get_id(req):
@@ -21,17 +26,6 @@ def on_launch():
     return statement("Thank you for trying medication tracker!")
 
 
-@ask.on_session_started
-def before_starting():
-    """Runs before any of the intent methods; checks that the user has
-    an account before continuing with the session."""
-    incoming_json = request.get_json()
-    user_id = get_id(incoming_json)
-    if not db.has_account(user_id):
-        return question("This appears to be your first time using Medication Tracker. I have created an account "
-                        "for you. Please repeat your request and we will get started.")
-
-
 @ask.intent("AMAZON.FallbackIntent")
 def fallback_intent():
     return statement("Sorry, med tracker didn't understand that.")
@@ -39,10 +33,14 @@ def fallback_intent():
 
 @ask.intent("TakeMedIntent", mapping={"med_name": "Med"})
 def take_med_intent(med_name):
+    logging.debug(f"take_med_intent called with {med_name}")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
     med = db.get_med(session, user_id, med_name)
+    med_name = med.name
 
     if not med:
         session.close()
@@ -53,15 +51,16 @@ def take_med_intent(med_name):
     return statement(f"Okay, you've taken {med_name}.")
 
 
-
 @ask.intent("TakeTwoMedIntent", mapping={"med_name": "Med",
                                          "med_name_2": "MedTwo"})
 def take_two_med_intent(med_name, med_name_2):
     """Tell the skill you want to take a med"""
     session = db.Session()
     user_id = get_id(request)
-    med_names = [med_name, med_name_2]
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
+    med_names = [med_name, med_name_2]
     meds = [db.get_med(session, user_id, med) for med in med_names]
 
     if not all(meds):
@@ -82,8 +81,10 @@ def take_three_med_intent(med_name, med_name_2, med_name_3):
     """Tell the skill you want to take three meds"""
     session = db.Session()
     user_id = get_id(request)
-    med_names = [med_name, med_name_2, med_name_3]
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
+    med_names = [med_name, med_name_2, med_name_3]
     meds = [db.get_med(session, user_id, med) for med in med_names]
 
     if not all(meds):
@@ -100,8 +101,11 @@ def take_three_med_intent(med_name, med_name_2, med_name_3):
 @ask.intent("AddMedIntent", mapping={"med_name": "Med"})
 def add_med_intent(med_name):
     """Tell the skill to add a med to your account"""
+    logging.debug(f"add_med_intent called with {med_name}")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
     # See if the med is already there
     med = db.get_med(session, user_id, med_name)
@@ -119,8 +123,11 @@ def add_med_intent(med_name):
 @ask.intent("RemoveMedIntent", mapping={"med_name": "Med"})
 def remove_med_intent(med_name):
     """Tell the skill to remove a med from your account"""
+    logging.debug(f"remove_med_intent called with {med_name}")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
     med = db.get_med(session, user_id, med_name)
 
@@ -137,15 +144,18 @@ def remove_med_intent(med_name):
 @ask.intent("AskMedIntent", mapping={"med_name": "Med"})
 def ask_med_intent(med_name):
     """Ask the skill if you took a med"""
+    logging.debug(f"ask_med_intent called with {med_name}")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
     med = db.get_med(session, user_id, med_name)
+    med_name = med.name
 
     if not med:
         session.close()
         return statement(f"I'm not tracking {med_name}.")
-
 
     is_taken = med.is_taken_today()
     session.close()
@@ -159,8 +169,11 @@ def ask_med_intent(med_name):
 @ask.intent("CancelMedIntent", mapping={"med_name": "Med"})
 def cancel_med_intent(med_name):
     """Tell the skill that you didn't actually take a med"""
+    logging.debug(f"cancel_med_intent called with {med_name}")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
 
     med = db.get_med(session, user_id, med_name)
 
@@ -169,6 +182,7 @@ def cancel_med_intent(med_name):
         return statement(f"I wasn't tracking {med_name}.")
 
     taken_today = med.is_taken_today()
+    med_name = med.name
 
     if not taken_today:
         session.close()
@@ -182,8 +196,12 @@ def cancel_med_intent(med_name):
 @ask.intent("WhatMedsTakenIntent")
 def what_meds_taken_intent():
     """State which meds have been taken"""
+    logging.debug(f"what_meds_taken_intent called")
     session = db.Session()
     user_id = get_id(request)
+    if not db.has_account(user_id, session):
+        return _no_account_response
+
     meds = session.query(db.Med).filter_by(account_id=user_id)
 
     if not meds:
