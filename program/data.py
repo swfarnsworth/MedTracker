@@ -12,8 +12,8 @@ Session = sessionmaker(bind=engine)
 
 
 class User(Base):
-    """Stores the user's timezone"""
-    __tablename__ = 'timezones'
+    """Stores the user data"""
+    __tablename__ = 'users'
     account_id = sql.Column(sql.String, primary_key=True)
     timezone = sql.Column(sql.String)
     last_used = sql.Column(sql.Float)
