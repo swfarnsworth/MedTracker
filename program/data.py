@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm.session import sessionmaker
 
 
-engine = sql.create_engine('sqlite:///./database.db', echo=True)
+engine = sql.create_engine('sqlite:///:memory:', echo=True)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 
@@ -41,7 +41,7 @@ class Med(Base):
     def take(self):
         """Sets self.when_taken to the Unix timestamp of the present time."""
         timezone = self._get_timezone()
-        self.when_taken = datetime.datetime.now().astimezone(timezone).timestamp()
+        self.when_taken = datetime.datetime.now(timezone).timestamp()
 
     def is_taken_today(self):
         """Returns True if this med was taken today"""
@@ -58,6 +58,13 @@ class Med(Base):
         session.close()
         return pytz.timezone(user_timezone_name)
 
+    def change_timezone(self, old_timezone, new_timezone):
+        old_timezone = pytz.timezone(old_timezone)
+        new_timezone = pytz.timezone(new_timezone)
+        old_datetime = datetime.datetime.fromtimestamp(self.when_taken).astimezone(old_timezone)
+        new_datetime = old_datetime.astimezone(new_timezone)
+        self.when_taken = new_datetime.timestamp()
+
     def __repr__(self):
         return f"Med({self.account_id}, {self.name}, {self.when_taken})"
 
@@ -71,7 +78,7 @@ def create_account(user_name):
     Creates objects for a new account with built-in morning, afternoon, and evening Meds
     :return: list of new objects
     """
-    new_account = User(account_id=user_name, last_used=0.0)
+    new_account = User(account_id=user_name, timezone='UTC', last_used=0.0)
     morning_meds = Med(account_id=user_name, name='your morning meds', when_taken=0.0)
     afternoon_meds = Med(account_id=user_name, name='your afternoon meds', when_taken=0.0)
     evening_meds = Med(account_id=user_name, name='your evening meds', when_taken=0.0)
@@ -121,20 +128,20 @@ for name in pytz.common_timezones:
 
 
 def set_timezone(user_name, user_tz_name):
+    """Sets a user's timezone and updates all Meds associated with their account to the new timezone"""
     session = Session()
     underscore_tz_name = user_tz_name.replace(" ", "_").lower()
     timezone_name = timezone_names[underscore_tz_name]
     if timezone_name not in pytz.common_timezones:
         return False
 
-    user_timezone = session.query(User).filter_by(account_id=user_name).first()
-    if not user_timezone:
-        # User timezone has never been set
-        timezone_column = User(account_id=user_name, timezone=timezone_name)
-        session.add(timezone_column)
-    else:
-        # Change user timezone
-        user_timezone.timezone = timezone_name
+    user = session.query(User).filter_by(account_id=user_name).first()
+    old_timezone = user.timezone
+    new_timezone = timezone_name
 
+    for med in session.query(Med).filter_by(account_id=user_name).all():
+        med.change_timezone(old_timezone, new_timezone)
+
+    user.timezone = new_timezone
     session.commit()
     return True
